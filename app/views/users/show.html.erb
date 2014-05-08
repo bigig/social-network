@@ -1,2 +1,13 @@
 
-<h1><%= @user.email %></h1>
+<div class='span7'>
+  <%= pretty 'Email Address', @user.email %>
+  <%= pretty 'First Name', @user.first_name %>
+  <%= pretty 'Last Name', @user.last_name %>
+  <%= pretty 'Birthday', @user.birthday %>
+  <%= pretty 'About', @user.about %>
+  <%= pretty 'Registered', @user.created_at %>
+</div>
+
+<div class='span5'>
+  <%= image_tag @user.avatar.url || 'default_avatar.png' %>
+</div>
