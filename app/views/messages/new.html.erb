@@ -1,0 +1,13 @@
+<h1 Send Message %>
+
+<%= form_tag messages_path do %>
+  <div class="field">
+    <%= label_tag :email, 'To' %><br />
+    <%= text_field_tag :to %>
+  </div>
+  <div class="field">
+    <%= label_tag :body %><br />
+    <%= text_area_tag :body %>
+  </div>
+  <div class="actions"><%= submit_tag "Send" %></div>
+<% end %>
