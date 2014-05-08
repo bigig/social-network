@@ -103,3 +103,12 @@ form .field, form .actions {
 #user_header {
   float: right;
 }
+
+main {
+  margin: 2em;
+  border-style: solid;
+  border-color: #DCDCDC;
+  border-radius: 4px;
+  border-width: 1px;
+  background: #FCFCFC;
+}
