@@ -7,6 +7,8 @@ SocialNetwork::Application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
   resources :users
+  resources :friends
+
   resources :sessions
 
   root to: 'messages#index'

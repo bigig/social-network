@@ -1,0 +1,32 @@
+<ul class="nav nav-tabs" id='myTab'>
+  <li class="active"><a href="#home" data-toggle="tab">Friends</a></li>
+  <% if @requests.size > 0 %>
+    <li><a href="#requests" data-toggle="tab">Requests</a></li>
+  <% end %>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="home">
+    <% if @friends.size == 0 %>
+      You have no friends
+    <% end %>
+    <% @friends.each do |friend| %>
+      <div class='requester'>
+          <%= image_tag friend.avatar.url(:thumb) %>
+          <%= link_to friend.full_name, friend %>
+          <%= friend.email %>
+          <%= link_to 'Delete from friends', friend_path(friend), class: 'btn btn-danger', method: :delete %>
+      </div>
+    <%end%>
+  </div>
+  <div class="tab-pane" id="requests">
+    <% @requests.each do |user| %>
+      <div class='requester'>
+          <%= image_tag user.avatar.url(:thumb) %>
+          <%= user.first_name %>
+          <%= user.last_name %>
+          <%= link_to 'Confirm', friends_path(user_id: user.id), class: 'btn btn-info', method: :post %>
+      </div>
+    <%end%>
+  </div>
+</div>
