@@ -1,6 +1,7 @@
 
 <% @users.each do |user| %>
   <div class='requester'>
+    <%= image_tag user.avatar.url(:thumb) %>
     <%= link_to user.full_name, user %>
     <%= user.email %>
   </div>

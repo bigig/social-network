@@ -9,8 +9,7 @@
 </div>
 
 <div class='span6'>
-  <% #image_tag @user.avatar.url(:large) %>
-  <%= image_tag 'default_avatar.png' %>
+  <%= image_tag @user.avatar.url(:large) %>
   <% unless current_user.has_friend?(@user) %>
     <div id='request_friend'>
       <%= link_to 'Add to friends', new_friend_path(user_id: @user.id), remote: true %>

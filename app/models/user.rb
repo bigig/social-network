@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
       :large => '300x300#'
     },
     :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
-    :default_url => 'images/default_avatar.png'
+    :default_url => '/assets/:style/default_avatar.png'
 
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
