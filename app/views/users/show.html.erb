@@ -15,4 +15,7 @@
       <%= link_to 'Add to friends', new_friend_path(user_id: @user.id), remote: true %>
     </div>
   <% end %>
+  <div>
+    <%= link_to_unless @liked, "Liked by #{@user.likes.count} users", likes_path(user_id: @user.id), method: :post %>
+  </div>
 </div>

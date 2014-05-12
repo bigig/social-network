@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   has_many :friends, class_name: 'User', foreign_key: 'friend_id'
   has_many :requests, class_name: 'User', foreign_key: 'requested_id'
   has_one  :question
+  has_many :likes
 
   def full_name
     "#{first_name} #{last_name}"
