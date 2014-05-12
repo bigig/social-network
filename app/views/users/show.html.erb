@@ -3,13 +3,14 @@
   <%= pretty 'Email Address', @user.email %>
   <%= pretty 'First Name', @user.first_name %>
   <%= pretty 'Last Name', @user.last_name %>
-  <%= pretty 'Birthday', @user.birthday %>
+  <%= pretty 'Birthday', @user.birthday.strftime('%d %B %Y')  %>
   <%= pretty 'About', @user.about %>
-  <%= pretty 'Registered', @user.created_at %>
+  <%= pretty 'Registered', @user.created_at.strftime('%d %B %Y') %>
 </div>
 
 <div class='span6'>
-  <%= image_tag @user.avatar.url(:large) || 'default_avatar.png' %>
+  <% #image_tag @user.avatar.url(:large) %>
+  <%= image_tag 'default_avatar.png' %>
   <% unless current_user.has_friend?(@user) %>
     <div id='request_friend'>
       <%= link_to 'Add to friends', new_friend_path(user_id: @user.id), remote: true %>

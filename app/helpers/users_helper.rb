@@ -1,9 +1,9 @@
 module UsersHelper
 
   def pretty field_label, field
-    content_tag :div,
-    content_tag(:span, whom(field_label), class: 'whom') + ' ' +
-      content_tag(:span, field, class: 'actually-field')
+    content_tag :table,
+    content_tag(:td, whom(field_label), class: 'whom') + ' ' +
+      content_tag(:td, field, class: 'actually-field'), class: 'table table-hover'
   end
 
   private
