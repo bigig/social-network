@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
@@ -10,6 +14,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    @user.question = Question.new(params[:question])
     if @user.update_attributes(params[:user])
       redirect_to current_user, notice: "Your profile updated successfully"
     else

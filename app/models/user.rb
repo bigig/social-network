@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   has_many :messages
   has_many :friends, class_name: 'User', foreign_key: 'friend_id'
   has_many :requests, class_name: 'User', foreign_key: 'requested_id'
+  has_one  :question
 
   def full_name
     "#{first_name} #{last_name}"
@@ -26,5 +27,10 @@ class User < ActiveRecord::Base
 
   def has_friend? user
     self == user || friends.include?(user)
+  end
+
+  def confirmed? q, a
+    return unless question
+    question.text == q && question.answer == a
   end
 end

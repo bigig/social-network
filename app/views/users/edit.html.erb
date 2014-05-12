@@ -32,6 +32,14 @@
     <%= f.label :avatar %>
     <%= f.file_field :avatar %>
   </div>
+  <div class="field">
+    <%= fields_for @user.try(:question) || :question do |ff| %>
+      <%= ff.label :text%>
+      <%= ff.text_field :text %>
+      <%= ff.label :answer%>
+      <%= ff.text_field :answer %>
+    <% end %>
+  </div>
   <div class="actions"><%= f.submit 'Update', class: 'btn btn-primary' %></div>
 <% end %>
 

@@ -22,10 +22,10 @@
   <div class="tab-pane" id="requests">
     <% @requests.each do |user| %>
       <div class='requester'>
-          <%= image_tag user.avatar.url(:thumb) %>
-          <%= user.first_name %>
-          <%= user.last_name %>
-          <%= link_to 'Confirm', friends_path(user_id: user.id), class: 'btn btn-info', method: :post %>
+        <%= image_tag user.avatar.url(:thumb) %>
+        <%= user.first_name %>
+        <%= user.last_name %>
+        <%= link_to 'Confirm', friends_path(user_id: user.id), class: 'btn btn-info', method: :post %>
       </div>
     <%end%>
   </div>
