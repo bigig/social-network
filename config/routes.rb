@@ -14,4 +14,6 @@ SocialNetwork::Application.routes.draw do
   root to: 'sessions#new'
   resources :messages
   resources :likes
+  resources :dialogs
+  resources :messages
 end

@@ -34,4 +34,12 @@ class User < ActiveRecord::Base
     return unless question
     question.text == q && question.answer == a
   end
+
+  def dialogs
+    Dialog.where('first_user_id = :id OR second_user_id = :id', id: id)
+  end
+
+  def dialog_with user
+    Dialog.where(first_user_id: [id, user.id], second_user_id: [id, user.id]).first
+  end
 end

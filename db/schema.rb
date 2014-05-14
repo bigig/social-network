@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140512162538) do
+ActiveRecord::Schema.define(:version => 20140514164605) do
+
+  create_table "dialogs", :force => true do |t|
+    t.integer  "first_user_id"
+    t.integer  "second_user_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "likes", :force => true do |t|
     t.integer  "user_id"
@@ -20,11 +27,11 @@ ActiveRecord::Schema.define(:version => 20140512162538) do
   end
 
   create_table "messages", :force => true do |t|
-    t.string   "user_id"
-    t.string   "receiver_id"
+    t.integer  "dialog_id"
+    t.integer  "user_id"
     t.text     "body"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "questions", :force => true do |t|
