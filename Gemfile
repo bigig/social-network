@@ -25,7 +25,8 @@ gem 'jquery-rails'
 gem 'jbuilder'
 gem 'twitter-bootstrap-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
-gem "paperclip-dropbox", ">= 1.1.7"
+gem 'paperclip-dropbox', ">= 1.1.7"
+gem 'font-awesome-rails'
 
 group :production do
   gem 'pg', '0.15.1'

@@ -6,6 +6,3 @@ $(document).ready ->
   $('#myTab a').click (e) ->
     e.preventDefault()
     $(@).tab('show')
-
-  $('#request_friend').click (e) ->
-    $(@).html('Added')
