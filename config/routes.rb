@@ -2,11 +2,10 @@ SocialNetwork::Application.routes.draw do
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
-  get 'reset', to: 'passwords#reset', as: 'reset'
 
   resources :users
   resources :friends
-  resources :passwords
+  resources :password_resets
   resources :messages
 
   resources :sessions

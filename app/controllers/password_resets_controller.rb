@@ -1,6 +1,6 @@
-class PasswordsController < ApplicationController
+class PasswordResetsController < ApplicationController
 
-  def reset
+  def new
   end
 
   def create
