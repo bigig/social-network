@@ -24,13 +24,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @liked = !!@user.likes.find_by_user_id(current_user.id)
   end
 
   def create
     @user = User.new(params[:user])
-    if @user.save
-      session[:user_id] = @user.id
+    if @user.save!
+      cookies[:auth_token] = @user.auth_token
       redirect_to edit_user_url(current_user), notice: "Thank you for signing up!"
     else
       render "new"

@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
   has_one  :question
   has_many :likes
 
+  before_create { generate_token(:auth_token) }
+
   def full_name
     "#{first_name} #{last_name}"
   end
@@ -42,5 +44,15 @@ class User < ActiveRecord::Base
   def dialog_with user
     Dialog.where(first_user_id: [id, user.id], second_user_id: [id, user.id]).first ||
       Dialog.create(first_user_id: id, second_user_id: user.id)
+  end
+
+  def liked? user
+    self == user || !!likes.find_by_user_id(user.id)
+  end
+
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
   end
 end

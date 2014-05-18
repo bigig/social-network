@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140514164605) do
+ActiveRecord::Schema.define(:version => 20140518115950) do
 
   create_table "dialogs", :force => true do |t|
     t.integer  "first_user_id"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20140514164605) do
     t.datetime "avatar_updated_at"
     t.integer  "friend_id"
     t.integer  "requested_id"
+    t.string   "auth_token"
   end
 
 end
