@@ -1,16 +1,10 @@
-<%= @dialogs.each do |dialog| %>
-
+<% @dialogs.each do |dialog| %>
   <% opponent = dialog.opponent_to(current_user) %>
-  <div class='requester'>
-    <%= image_tag opponent.avatar.url(:thumb) %>
-    <%= link_to opponent.full_name, dialog %>
-  </div>
-<% end %>
-
-<% @users.each do |user| %>
-  <div class='requester'>
-    <%= image_tag user.avatar.url(:thumb) %>
-    <%= link_to user.full_name, user %>
-    <%= user.email %>
+  <div class='requester span6'>
+    <%= image_tag opponent.avatar.url(:thumb), class: 'span3' %>
+    <div class='span2'>
+      <%= link_to opponent.full_name, dialog %>
+      <p class='last-message'><%= dialog.messages.last.body %></p>
+    </div>
   </div>
 <% end %>

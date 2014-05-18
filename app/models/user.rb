@@ -40,6 +40,7 @@ class User < ActiveRecord::Base
   end
 
   def dialog_with user
-    Dialog.where(first_user_id: [id, user.id], second_user_id: [id, user.id]).first
+    Dialog.where(first_user_id: [id, user.id], second_user_id: [id, user.id]).first ||
+      Dialog.create(first_user_id: id, second_user_id: user.id)
   end
 end

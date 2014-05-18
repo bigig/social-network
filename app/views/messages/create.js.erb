@@ -1,0 +1,4 @@
+var chat = $("#chat")
+chat.append("<%= escape_javascript render(@message) %>");
+chat.scrollTop(chat[0].scrollHeight)
+$("#new_message")[0].reset();

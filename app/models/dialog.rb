@@ -7,6 +7,6 @@ class Dialog < ActiveRecord::Base
   has_many :messages
 
   def opponent_to user
-    [first_user, second_user].delete(user)
+    ([first_user, second_user] - [user]).first
   end
 end

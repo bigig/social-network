@@ -16,6 +16,7 @@
           <%= link_to friend.full_name, friend %>
           <%= friend.email %>
           <%= link_to 'Delete from friends', friend_path(friend), class: 'btn btn-danger', method: :delete %>
+          <%= link_to 'Go to the dialog', current_user.dialog_with(friend), class: 'btn btn-success' %>
       </div>
     <%end%>
   </div>
