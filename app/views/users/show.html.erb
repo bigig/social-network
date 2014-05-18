@@ -12,10 +12,12 @@
   <%= image_tag @user.avatar.url(:large) %>
   <% unless current_user.has_friend?(@user) %>
     <div id='request_friend'>
+      <i class="fa fa-plus"></i>&nbsp;
       <%= link_to 'Add to friends', new_friend_path(user_id: @user.id), remote: true %>
     </div>
   <% end %>
-  <div>
-    <%= link_to_unless @liked, "Liked by #{@user.likes.count} users", likes_path(user_id: @user.id), method: :post %>
+  <div id='like'>
+    <i class="fa fa-heart"></i>
+    <%= link_to_unless liked?, "Liked by #{@user.likes.count} users", likes_path(user_id: @user.id), method: :post %>
   </div>
 </div>

@@ -6,6 +6,10 @@ module UsersHelper
       content_tag(:td, field, class: 'actually-field'), class: 'table table-hover'
   end
 
+  def liked?
+    @user.liked? current_user
+  end
+
   private
 
   def whom field

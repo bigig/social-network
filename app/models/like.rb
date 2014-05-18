@@ -1,3 +1,3 @@
 class Like < ActiveRecord::Base
-  attr_accessible :user_id
+  attr_accessible :user_id, :from_id
 end

@@ -4,4 +4,4 @@
 
 $(document).ready ->
   chat = $('#chat')
-  chat.scrollTop(chat[0].scrollHeight)
+  chat?.scrollTop(chat[0]?.scrollHeight)

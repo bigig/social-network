@@ -6,3 +6,6 @@ $(document).ready ->
   $('#myTab a').click (e) ->
     e.preventDefault()
     $(@).tab('show')
+
+  $('#request_friend').click (e) ->
+    $(@).find('a').html 'Request was sent'

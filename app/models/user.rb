@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
   end
 
   def liked? user
-    self == user || !!likes.find_by_user_id(user.id)
+    self == user || likes.find_by_from_id(user.id)
   end
 
   def generate_token(column)
