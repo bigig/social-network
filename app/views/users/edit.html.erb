@@ -26,7 +26,7 @@
   </div>
   <div class="field">
     <%= f.label :about %>
-    <%= f.text_area :about %>
+    <%= f.text_area :about, rows: 2 %>
   </div>
   <div class="field">
     <%= f.label :avatar %>
@@ -34,7 +34,7 @@
   </div>
   <div class="field">
     <%= fields_for @user.try(:question) || :question do |ff| %>
-      <%= ff.label :text%>
+      <%= ff.label :text, 'Secret question (for you password reset)'%>
       <%= ff.text_field :text %>
       <%= ff.label :answer%>
       <%= ff.text_field :answer %>

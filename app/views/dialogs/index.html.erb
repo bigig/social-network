@@ -1,10 +1,14 @@
+<% if @dialogs.empty? %>
+  To start a dialog go to the friends page
+<% end %>
 <% @dialogs.each do |dialog| %>
   <% opponent = dialog.opponent_to(current_user) %>
   <div class='requester span6'>
     <%= image_tag opponent.avatar.url(:thumb), class: 'span3' %>
-    <div class='span2'>
+    <div class='span3'>
       <%= link_to opponent.full_name, dialog %>
-      <p class='last-message'><%= dialog.messages.last.body %></p>
+      <%  last_message = dialog.messages.last.try(:body) %>
+      <%= content_tag :div, last_message, class: 'last-message' %></div>
     </div>
   </div>
 <% end %>

@@ -32,9 +32,9 @@ class User < ActiveRecord::Base
     self == user || friends.include?(user)
   end
 
-  def confirmed? q, a
+  def confirmed? a
     return unless question
-    question.text == q && question.answer == a
+    question.answer == a
   end
 
   def dialogs
