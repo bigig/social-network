@@ -3,8 +3,10 @@
 </ul>
 
 <%= form_for Message.new, remote: true do |f| %>
+  <%= image_tag current_user.avatar.url(:thumb) %>
   <%= f.hidden_field :dialog_id, value: params[:id] %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.text_field :body %>
   <%= f.submit 'Send', class: 'btn btn-info', id: 'send_message' %>
+  <%= image_tag @dialog.opponent_to(current_user).avatar.url(:thumb) %>
 <% end %>
