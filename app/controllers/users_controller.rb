@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_filter :current_user?, only: [:edit, :update]
+
   def index
     @users = User.all
   end
@@ -9,11 +11,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.where("id=#{params[:id]}").first
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.where("id=#{params[:id]}").first
     @user.question = Question.new(params[:question])
     if @user.update_attributes(params[:user])
       redirect_to current_user, notice: "Your profile updated successfully"
@@ -23,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.where("id=#{params[:id]}").first
+    @user = User.find(params[:id])
   end
 
   def create
